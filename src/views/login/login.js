@@ -31,8 +31,7 @@ export default function Login() {
 
     const [errors, setErrors] = React.useState('');
     const authContext = React.useContext(AuthContext)
-    console.log("is logged in is ", authContext.isLoggedIn)
-
+  
    const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -68,7 +67,7 @@ export default function Login() {
             marginTop: 0,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
           }}
         >
           <img src={logo} style= {{marginTop: "50px"}} />
