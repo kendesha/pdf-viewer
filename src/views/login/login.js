@@ -41,14 +41,14 @@ export default function Login() {
       password: data.get('password'),
     };
 
-    axios.post('https://localhost:7227/api/Users/login',loginData)
+    axios.post('https://localhost:44375/api/Users/login',loginData)
          .then(response => {
             var data = response['data']; 
             
             if(data['succeeded'])
             {
                 setErrors('')
-                authContext.Login(data["data"])
+                authContext.Login(data["data"]["token"])
                 return
             }
             
