@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import logo from '../../assests/images/logo.png';
 import '../../styles/login.css';
 import Button from '@mui/material/Button';
@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AuthContext } from '../../context/auth-context';
+import {useNavigate} from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -29,9 +30,20 @@ const theme = createTheme();
 
 export default function Login() {
 
-    const [errors, setErrors] = React.useState('');
-    const authContext = React.useContext(AuthContext)
+    const navigate = useNavigate();
   
+    const [errors, setErrors] = useState('');
+    
+    const authContext = useContext(AuthContext);
+    const isLoggedIn = authContext.isLoggedIn
+
+      useEffect(() => {
+        if (isLoggedIn){
+          navigate("/client")
+        }
+      
+      }, [navigate, isLoggedIn])
+
    const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -43,12 +55,18 @@ export default function Login() {
 
     axios.post('https://localhost:44375/api/Users/login',loginData)
          .then(response => {
-            var data = response['data']; 
+            const data = response.data; 
+            const token = data?.data?.token;
+            const expirationDate = data?.data?.expires;
+            
+            
             
             if(data['succeeded'])
             {
                 setErrors('')
-                authContext.Login(data["data"]["token"])
+                
+                 authContext.Login(token, expirationDate)
+                 
                 return
             }
             
@@ -104,6 +122,7 @@ export default function Login() {
               style= {{backgroundColor: "#EB5F40"}}
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+             
             >
               Sign In
             </Button>
