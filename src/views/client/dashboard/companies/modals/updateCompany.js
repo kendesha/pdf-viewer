@@ -1,8 +1,7 @@
 import React, {useContext,useEffect, useState,} from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Input  from '@mui/material/Input';
-import InputLabel  from '@mui/material/InputLabel';
+import TextField from '@mui/material/TextField';
 import axios from 'axios'
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -11,12 +10,25 @@ import { AuthContext } from "../../../../../context/auth-context";
 
 const theme = createTheme();
 
-
-const UpdateCompany = (props) => {
-
+export default function  UpdateCompany(props) {
     const [errors, setErrors] = useState('');
-    const [values] = useState(props.currentData);
     const authContext = useContext(AuthContext)
+    const [formData, setFormData] = useState(
+      {
+        id: props.currentData.id,
+        name: props.currentData.name,
+        tax_id: props.currentData.tax_id
+      }
+    )
+   
+    function handleChange(event) {
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [event.target.name]: event.target.value
+            }
+        })
+    }
     const token =  authContext.token;
     
     const handleSubmit = (event) => {
@@ -59,27 +71,32 @@ const UpdateCompany = (props) => {
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1}} className="login-form">
         <h3>Update Company</h3>
         <h4>{errors}</h4>
-         <InputLabel>Company Name</InputLabel>
-            <Input 
-             required
-             fullWidth
-             id="name"
-            defaultValue={values.name}
+        <TextField
+            margin="normal"
+            required
+            fullWidth
+            variant='standard'
+            id="name"
             label="Company Name"
             name="name"
             autoComplete="off"
+            onChange={handleChange}
+            value={formData.name}
             />
-         
-         <InputLabel>Tax Identification Number</InputLabel>
-            <Input 
+            <TextField
+            margin="normal"
             required
             fullWidth
-            defaultValue={values.tax_id}
             name="tax_id"
             label="Tax Identification"
             id="tax_id"
+            variant='standard'
             autoComplete="off"
+            onChange={handleChange}
+            value={formData.tax_id}
+          
             />
+    
             <Button
             type="submit"
             fullWidth
@@ -99,4 +116,3 @@ const UpdateCompany = (props) => {
   
   );
 }
-export default UpdateCompany;

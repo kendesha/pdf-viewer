@@ -148,7 +148,7 @@ export const ClientDashboard = (props) => {
             </IconButton> */}
             <Button onClick={() => {
               logoutHandler()
-            }} variant="contained">Logout</Button>
+            }} variant="contained" sx={{ backgroundColor: "#40CCEB"}}>Logout</Button>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

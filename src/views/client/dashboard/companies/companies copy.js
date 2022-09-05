@@ -1,9 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { forwardRef } from 'react';
 import { AuthContext } from "../../../../context/auth-context";
 import axios from 'axios'
 import { Box,Modal, TableContainer,Table, TableBody, TableCell, TableHead, TableRow,Paper } from "@mui/material";
-import Grid from 'materialui-grid'
 import Button from '@mui/material/Button';
 import CreateCompany from './modals/createCompany'
 import UpdateCompany from './modals/updateCompany'
