@@ -19,7 +19,6 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import Company from './companies/companies';
 import {useNavigate, Outlet} from 'react-router-dom';
 
 
@@ -86,7 +85,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-export const ClientDashboard = (props) => {
+export const AdminDashboard = (props) => {
   const [open, setOpen] = useState(true);
   const [menuItem,setCurrentMenuItem] = useState('dashboard');
   const toggleDrawer = () => {
@@ -139,7 +138,7 @@ export const ClientDashboard = (props) => {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Client Dashboard
+              Admin Dashboard
             </Typography>
             {/* <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">

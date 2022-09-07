@@ -24,24 +24,13 @@ export default function MenuItems (props) {
       </ListItemIcon>
       <ListItemText primary="Dashboard"/>
     </ListItemButton>
-    <ListItemButton onClick={()=>{ handleClick("/client/documents")}}>
+    <ListItemButton onClick={()=>{ handleClick("/admin/clients")}}>
       <ListItemIcon>
         <DocumentScannerIcon />
       </ListItemIcon>
-      <ListItemText primary="Documents"/>
+      <ListItemText primary="Client"/>
     </ListItemButton>
-    <ListItemButton onClick={()=>{ handleClick("/client/companies")}}>
-      <ListItemIcon>
-        <StoreIcon />
-      </ListItemIcon>
-      <ListItemText primary="Companies"  />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <DriveFileRenameOutlineIcon />
-      </ListItemIcon>
-      <ListItemText primary="Signatures" />
-    </ListItemButton>
+   
   </React.Fragment>
 )
 };

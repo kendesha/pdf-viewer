@@ -4,9 +4,10 @@ import { AuthContext, AuthContextProvider } from './context/auth-context';
 import Company from './views/client/dashboard/companies/companies';
 import Login  from './views/login/login';
 import {ClientDashboard} from './views/client/dashboard/client'
+import {AdminDashboard} from './views/admin/dashboard/admin'
 import { Users } from './views/users';
 import { CompanyCreate } from './views/client/dashboard/companies/create';
-
+import Documents from './views/client/dashboard/documents/documents'
 
 function App() {
   return (
@@ -23,8 +24,11 @@ function App() {
               <Route path="client" element ={<ClientDashboard/>}>
                 <Route path="companies" element ={<Company />}/>
                 <Route path="companies/create" element ={<CompanyCreate/>}/>
+                <Route path="documents" element ={<Documents/>}/>
               </Route>
-
+              <Route path="Admin" element ={<AdminDashboard/>}>
+               
+              </Route>
               
               
               <Route path="companies" element ={<Company />}/>

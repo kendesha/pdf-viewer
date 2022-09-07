@@ -36,10 +36,13 @@ export default function Login() {
     
     const authContext = useContext(AuthContext);
     const isLoggedIn = authContext.isLoggedIn
-
+    const role = authContext.role
       useEffect(() => {
         if (isLoggedIn){
-          navigate("/client")
+          if(role == 'Client')
+             navigate("/client")
+          if(role == 'Admin')
+             navigate("/Admin")
         }
       
       }, [navigate, isLoggedIn])
@@ -58,6 +61,7 @@ export default function Login() {
             const data = response.data; 
             const token = data?.data?.token;
             const expirationDate = data?.data?.expires;
+            const role = data?.data?.role;
             
             
             
@@ -65,7 +69,7 @@ export default function Login() {
             {
                 setErrors('')
                 
-                 authContext.Login(token, expirationDate)
+                 authContext.Login(token, expirationDate,role)
                  
                 return
             }
