@@ -58,6 +58,7 @@ export const AuthContextProvider = ({children}) => {
   const [role,setRole] = useState(initialRole);
   const userIsLoggedIn = !!token
   const navigate = useNavigate();
+  const dashboards = {"client" : '/client', 'admin' : '/admin'}
 
     const Login = (token, expirationTime,userRole ) => {
         
@@ -73,10 +74,7 @@ export const AuthContextProvider = ({children}) => {
 
         logoutTimer = setTimeout(Logout, remainingTime)
 
-        if(role == 'Client')
-           navigate("/client")
-       if(role == 'Admin')
-          navigate("/client")
+        navigate(dashboards[role.toLowerCase()])
     } 
 
     const Logout = useCallback(

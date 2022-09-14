@@ -22,14 +22,21 @@
     "@testing-library/user-event": "^13.5.0",
     "aws-sdk": "^2.1209.0",
     "axios": "^0.27.2",
+    "d3": "^7.6.1",
     "material-table": "^2.0.3",
     "material-ui-dropzone": "^3.5.0",
     "material-ui-upload": "^1.2.1",
     "materialui-grid": "^1.0.0",
     "mui-radio-group": "^1.0.5",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^2.16.105",
+    "pspdfkit": "^2022.4.1",
     "react": "^18.2.0",
     "react-crud-table": "^0.3.1",
     "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.5",
+    "react-pdf": "^5.7.2",
+    "react-rnd": "^10.3.7",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "recharts": "^2.1.13",
@@ -59,5 +66,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-grid": "^4.0.4"
   }
 }

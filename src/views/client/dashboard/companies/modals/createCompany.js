@@ -29,7 +29,7 @@ const CreateCompany = (props) => {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        axios.post('https://localhost:44375/api/Companies/create-company',createCompany,config)
+        axios.post('/Companies/create-company',createCompany,config)
         .then(response => {
            if(response.data.succeeded){
                props.handleClose(false);

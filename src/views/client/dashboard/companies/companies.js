@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../context/auth-context";
-import axios from 'axios'
+import axios from "../../../../axios";
 import { Box,Modal, TableContainer,Table, TableBody, TableCell, TableHead, TableRow,Paper } from "@mui/material";
 import Button from '@mui/material/Button';
 import CreateCompany from './modals/createCompany'
@@ -35,7 +35,7 @@ export default function Company(){
       const config = {
         headers: { Authorization: `Bearer ${token}` }
     };
-    axios.get('https://localhost:44375/api/Companies/get-companies-by-id?id='+ id,config)
+    axios.get('/Companies/get-companies-by-id?id='+ id,config)
          .then(response => {
           if(response.data.succeeded){
             let companyInfo = response.data.data[0];
@@ -52,7 +52,7 @@ export default function Company(){
             headers: { Authorization: `Bearer ${token}` }
         };
 
-        return axios.get('https://localhost:44375/api/Companies/get-companies',config)
+        return axios.get('/Companies/get-companies',config)
     }
 
     const fetchCompanies = async () => {

@@ -8,6 +8,8 @@ import {AdminDashboard} from './views/admin/dashboard/admin'
 import { Users } from './views/users';
 import { CompanyCreate } from './views/client/dashboard/companies/create';
 import Documents from './views/client/dashboard/documents/documents'
+import { UploadDocument } from './views/client/dashboard/documents/components/upload';
+import { Inbox } from './views/client/dashboard/documents/inbox';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
               </Route>
               
               <Route path="client" element ={<ClientDashboard/>}>
+                <Route path="upload" element ={<UploadDocument/>}/>
+                <Route path="inbox" element ={<Inbox/>}/>
                 <Route path="companies" element ={<Company />}/>
                 <Route path="companies/create" element ={<CompanyCreate/>}/>
                 <Route path="documents" element ={<Documents/>}/>

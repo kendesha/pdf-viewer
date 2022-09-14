@@ -43,7 +43,7 @@ export default function  UpdateCompany(props) {
             tax_id: data.get('tax_id'),
           };
        
-        axios.put('https://localhost:44375/api/Companies/update-company',updateCompany,config)
+        axios.put('/Companies/update-company',updateCompany,config)
         .then(response => {
            if(response.data.succeeded){
                props.handleClose(false);
