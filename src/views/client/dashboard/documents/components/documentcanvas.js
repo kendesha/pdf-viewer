@@ -19,6 +19,13 @@ export default function DocumentCanvas({nodes,updateDragNode, updateBoundary,han
     const focus =(node) =>{
         handleOnFocus(node);
     }
+   
+    function getCursorPosition(canvas, event) {
+        const rect = canvas.getBoundingClientRect()
+        const x = event.clientX - rect.left
+        const y = event.clientY - rect.top
+        console.log("getCursorPosition:", "x: " + x + " y: " + y)
+    }
     useEffect(() => {
        updateBoundary({top, bottom, left, right })
     }, [top, bottom, left, right])
@@ -51,8 +58,6 @@ export default function DocumentCanvas({nodes,updateDragNode, updateBoundary,han
                 console.log("inner right", canvas.getBoundingClientRect().right)
                 console.log("inner height", canvas.clientHeight)
                 console.log("inner width", canvas.clientWidth)
-                // console.log("pdf js width", width)
-                // console.log("pdf js height", height)
         
                 setClientSize(() => {
                     return {
@@ -61,7 +66,7 @@ export default function DocumentCanvas({nodes,updateDragNode, updateBoundary,han
                           left: canvas.getBoundingClientRect().left, 
                           right: canvas.getBoundingClientRect().right }
                 })
-        
+             
                 const canvasContext = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
@@ -84,7 +89,7 @@ export default function DocumentCanvas({nodes,updateDragNode, updateBoundary,han
         <>
                <canvas ref={canvasRef} style={{ height: '100vh' }} />
                 { nodes.map((node,index) =>{
-                    //console.log(node);
+                  
                     switch(node.type){
                         case "":
                             return null;

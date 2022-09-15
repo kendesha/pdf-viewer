@@ -47,7 +47,8 @@ export const UploadDocument = () => {
                     style= {{backgroundColor: "#EB5F40"}}
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}
-                    onClick={uploadFile}>
+                    //onClick={uploadFile}
+                    >
                 upload
             </Button>
           

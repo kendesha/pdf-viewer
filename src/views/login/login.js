@@ -56,7 +56,7 @@ export default function Login() {
       password: data.get('password'),
     };
 
-    axios.post('http://192.168.4.20/api/Users/login',loginData)
+    axios.post('http://192.168.4.20/api/users/login',loginData)
          .then(response => {
             const data = response.data; 
             const token = data?.data?.token;
