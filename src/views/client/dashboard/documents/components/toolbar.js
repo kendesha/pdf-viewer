@@ -2,10 +2,10 @@ import React from "react";
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import StoreIcon from '@mui/icons-material/Store';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 const ToolBar = ({ createNode }) => {
 
   const onItemClicked = (name) =>{
@@ -16,19 +16,19 @@ const ToolBar = ({ createNode }) => {
     <React.Fragment>
     <ListItemButton onClick={()=>{ onItemClicked("sign")}}>
       <ListItemIcon>
-        <DashboardIcon />
+        <BorderColorIcon />
       </ListItemIcon>
-      <ListItemText primary="Sign"/>
+      <ListItemText primary="Signature"/>
     </ListItemButton>
     <ListItemButton onClick={()=>{ onItemClicked("text")}}>
       <ListItemIcon>
-        <DocumentScannerIcon />
+        <TextFieldsIcon />
       </ListItemIcon>
       <ListItemText primary="Text"/>
     </ListItemButton>
     <ListItemButton onClick={()=>{ onItemClicked("date")}}>
       <ListItemIcon>
-        <DocumentScannerIcon />
+        <CalendarMonthIcon />
       </ListItemIcon>
       <ListItemText primary="Date"/>
     </ListItemButton>

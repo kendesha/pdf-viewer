@@ -1,13 +1,10 @@
 import {React, Component} from "react";
-import {
-    Accordion,
-    Box,
-    AccordionSummary,
-    AccordionDetails,
-    Typography,
-  } from "@material-ui/core";
-  import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
-
+import {Box} from "@material-ui/core";
+import InputGroup from 'react-bootstrap/InputGroup';
+import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+import {Grid} from '@mui/material';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
 class NodeOptions extends Component{
     constructor(props) {
         super();
@@ -30,17 +27,48 @@ class NodeOptions extends Component{
       render(){
         return (
           <div>
-        <Box className={this.classes.accordion}>
-                <Accordion>
-                <AccordionSummary>
-                    <Typography>Location</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <input type="text" defaultValue={this.state.location.top}/>
-                <input type="text" defaultValue={this.state.location.top}/>
-                </AccordionDetails>
-                </Accordion>
-            </Box>
+        <Box>
+        <Card style={{ width: '18rem', background: 'white',padding: '20px' }}>
+                    <Card.Body>
+                      <Card.Title>Signer</Card.Title>
+                       <Card.Text>
+                       <Form.Select aria-label="Default select example">
+                          <option>Open this select menu</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </Form.Select>
+                        
+                      </Card.Text>
+                     </Card.Body>
+          </Card>
+         <Card style={{ width: '18rem', background: 'white',padding: '20px' }}>
+                    <Card.Body>
+                      <Card.Title>Location</Card.Title>
+                       <Card.Text>
+                       <Grid container spacing={2}>
+                        <Grid item xs={12} >
+                        <InputGroup className="mb-3">
+                        <InputGroup.Text id="basic-addon1">x</InputGroup.Text>
+                        <Form.Control
+                          aria-describedby="basic-addon1"
+                        />
+                      </InputGroup>
+                        </Grid>
+                        <Grid item xs={12} >
+                        <InputGroup className="mb-3">
+                        <InputGroup.Text id="basic-addon2">y</InputGroup.Text>
+                        <Form.Control
+                           aria-describedby="basic-addon2"
+                        />
+                      </InputGroup> 
+                        </Grid>
+                      </Grid>
+                      </Card.Text>
+                     </Card.Body>
+          </Card>
+    
+          </Box>
            
           </div>  
         )
